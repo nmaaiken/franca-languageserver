@@ -20,7 +20,8 @@
         "Programming Languages"
     ],
     "activationEvents": [
-        "onLanguage:mydsl"
+        "onLanguage:mydsl",
+        "onLanguage:franca"
     ],
     "main": "out/extension",
     "contributes": {
@@ -34,6 +35,18 @@
                     ".mydsl"
                 ],
                 "configuration": "./mydsl.configuration.json"
+            },
+
+            {
+                "id": "fidl", 
+                "aliases": [
+                    "franca",
+                    "fidl"
+                ],
+                "extensions": [
+                    ".fidl"
+                ],
+                "configuration": "./franca.configuration.json"
             }
         ],
         "grammars": [

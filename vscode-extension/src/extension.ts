@@ -9,7 +9,7 @@ import { LanguageClient, LanguageClientOptions, StreamInfo, Position as LSPositi
 export function activate(context: ExtensionContext) {
     // The server is a started as a separate app and listens on port 5007
     let connectionInfo = {
-        port: 5007
+        port: 5008
     };
     let serverOptions = () => {
         // Connect to language server via socket
@@ -22,7 +22,7 @@ export function activate(context: ExtensionContext) {
     };
     
     let clientOptions: LanguageClientOptions = {
-        documentSelector: ['mydsl'],
+        documentSelector: ['fidl'],
         synchronize: {
             fileEvents: workspace.createFileSystemWatcher('**/*.*')
         }
@@ -31,14 +31,14 @@ export function activate(context: ExtensionContext) {
     // Create the language client and start the client.
     let lc = new LanguageClient('Xtext Server', serverOptions, clientOptions);
 
-    var disposable2 =commands.registerCommand("mydsl.a.proxy", async () => {
+    var disposable2 =commands.registerCommand("franca", async () => {
         let activeEditor = window.activeTextEditor;
-        if (!activeEditor || !activeEditor.document || activeEditor.document.languageId !== 'mydsl') {
+        if (!activeEditor || !activeEditor.document || activeEditor.document.languageId !== 'fidl') {
             return;
         }
 
         if (activeEditor.document.uri instanceof Uri) {
-            commands.executeCommand("mydsl.a", activeEditor.document.uri.toString());
+            commands.executeCommand("franca", activeEditor.document.uri.toString());
         }
     })
 

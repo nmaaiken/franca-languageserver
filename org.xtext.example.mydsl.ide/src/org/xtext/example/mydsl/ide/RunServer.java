@@ -32,7 +32,7 @@ public class RunServer {
 			MessageConsumer result = consumer;
 			return result;
 		};
-		Launcher<LanguageClient> launcher = createSocketLauncher(languageServer, LanguageClient.class, new InetSocketAddress("localhost", 5007), Executors.newCachedThreadPool(), wrapper);
+		Launcher<LanguageClient> launcher = createSocketLauncher(languageServer, LanguageClient.class, new InetSocketAddress("localhost", 5008), Executors.newCachedThreadPool(), wrapper);
 		languageServer.connect(launcher.getRemoteProxy());
 		Future<?> future = launcher.startListening();
 		while (!future.isDone()) {
