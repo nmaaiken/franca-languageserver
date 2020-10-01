@@ -20,39 +20,23 @@
         "Programming Languages"
     ],
     "activationEvents": [
-        "onLanguage:mydsl"
+        "onLanguage:fidl"
     ],
     "main": "out/extension",
     "contributes": {
         "languages": [
             {
-                "id": "mydsl",
+                "id": "FrancaIDL",
                 "aliases": [
-                    "mydsl"
+                    "franca"
                 ],
                 "extensions": [
-                    ".mydsl"
+                    ".fidl"
                 ],
-                "configuration": "./mydsl.configuration.json"
-            }
-        ],
-        "grammars": [
-            {
-                "language": "mydsl",
-                "scopeName": "text.mydsl",
-                "path": "./syntaxes/mydsl.tmLanguage.json"
-            }
-        ],
-        "commands": [
-            {
-                "command": "mydsl.a.proxy",
-                "title": "MyDsl Command A"
-            },
-            {
-                "command": "mydsl.b",
-                "title": "MyDsl Command B"
+                "configuration": "./franca.configuration.json"
             }
         ]
+
     },
     "devDependencies": {
         "vscode": "^1.1.33",

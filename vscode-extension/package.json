@@ -27,18 +27,7 @@
     "contributes": {
         "languages": [
             {
-                "id": "mydsl",
-                "aliases": [
-                    "mydsl"
-                ],
-                "extensions": [
-                    ".mydsl"
-                ],
-                "configuration": "./mydsl.configuration.json"
-            },
-
-            {
-                "id": "fidl", 
+                "id": "fidl",
                 "aliases": [
                     "franca",
                     "fidl"
@@ -49,20 +38,14 @@
                 "configuration": "./franca.configuration.json"
             }
         ],
-        "grammars": [
-            {
-                "language": "mydsl",
-                "scopeName": "text.mydsl",
-                "path": "./syntaxes/mydsl.tmLanguage.json"
-            }
-        ],
+        "grammars": [],
         "commands": [
             {
-                "command": "mydsl.a.proxy",
+                "command": "franca.a.proxy",
                 "title": "MyDsl Command A"
             },
             {
-                "command": "mydsl.b",
+                "command": "franca.b",
                 "title": "MyDsl Command B"
             }
         ]
