@@ -1,2 +1,3 @@
 include 'org.franca.example.lsp'
 include 'vscode-extension'
+include 'vscode-extension-self-contained'
