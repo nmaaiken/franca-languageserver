@@ -21,7 +21,7 @@
     ],
     "activationEvents": [
         "onLanguage:mydsl",
-        "onLanguage:franca"
+        "onLanguage:fidl"
     ],
     "main": "out/extension",
     "contributes": {

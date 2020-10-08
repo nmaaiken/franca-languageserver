@@ -7,7 +7,7 @@ import { window, workspace, commands, ExtensionContext, Uri } from 'vscode';
 import { LanguageClient, LanguageClientOptions, StreamInfo, Position as LSPosition, Location as LSLocation } from 'vscode-languageclient';
 
 export function activate(context: ExtensionContext) {
-    // The server is a started as a separate app and listens on port 5007
+    // The server is a started as a separate app and listens on port 5008
     let connectionInfo = {
         port: 5008
     };
@@ -31,14 +31,14 @@ export function activate(context: ExtensionContext) {
     // Create the language client and start the client.
     let lc = new LanguageClient('Xtext Server', serverOptions, clientOptions);
 
-    var disposable2 =commands.registerCommand("franca", async () => {
+    var disposable2 =commands.registerCommand("franca-socket", async () => {
         let activeEditor = window.activeTextEditor;
         if (!activeEditor || !activeEditor.document || activeEditor.document.languageId !== 'fidl') {
             return;
         }
 
         if (activeEditor.document.uri instanceof Uri) {
-            commands.executeCommand("franca", activeEditor.document.uri.toString());
+            commands.executeCommand("franca-socket", activeEditor.document.uri.toString());
         }
     })
 
