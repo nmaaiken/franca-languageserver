@@ -20,7 +20,6 @@
         "Programming Languages"
     ],
     "activationEvents": [
-        "onLanguage:mydsl",
         "onLanguage:fidl"
     ],
     "main": "out/extension",
@@ -29,24 +28,12 @@
             {
                 "id": "fidl",
                 "aliases": [
-                    "franca",
-                    "fidl"
+                    "FrancaIDL"
                 ],
                 "extensions": [
                     ".fidl"
                 ],
                 "configuration": "./franca.configuration.json"
-            }
-        ],
-        "grammars": [],
-        "commands": [
-            {
-                "command": "franca.a.proxy",
-                "title": "MyDsl Command A"
-            },
-            {
-                "command": "franca.b",
-                "title": "MyDsl Command B"
             }
         ]
     },
