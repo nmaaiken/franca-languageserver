@@ -44,7 +44,7 @@ class ServerLauncher {
 	def void start(InputStream in, OutputStream out) {
 		System.err.println("Starting Xtext Language Server.")
 		val id = ServerLauncher.name + "-" + (new Timestamp(System.currentTimeMillis)).toString.replaceAll(" ","_")
-		val launcher = Launcher.createLauncher(languageServer, LanguageClient, in, out, true, new PrintWriter(new FileOutputStream("/Users/dietrich/logs/xxx-"+id+".log"), true))
+		val launcher = Launcher.createLauncher(languageServer, LanguageClient, in, out, true, new PrintWriter(new FileOutputStream("/Users/nmaai/Desktop/logs/xxx-"+id+".log"), true))
 		languageServer.connect(launcher.remoteProxy)
 		val future = launcher.startListening
 		System.err.println("started.")
