@@ -35,7 +35,14 @@
                 ],
                 "configuration": "./franca.configuration.json"
             }
-        ]
+		],
+		"grammars": [
+			{
+				"language": "fidl",
+				"scopeName": "source.fidl",
+				"path": "./syntaxes/fidl.tmLanguage.json"
+			}
+		]
     },
     "devDependencies": {
         "vscode": "^1.1.33",

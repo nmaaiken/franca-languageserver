@@ -39,7 +39,7 @@
         "grammars": [
             {
                 "language": "fidl",
-                "scopeName": "text.fidl",
+                "scopeName": "source.fidl",
                 "path": "./syntaxes/fidl.tmLanguage.json"
             }
         ]
