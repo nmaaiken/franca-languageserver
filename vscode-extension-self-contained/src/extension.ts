@@ -8,9 +8,9 @@ import { commands, window, workspace, ExtensionContext, Uri } from 'vscode';
 import { LanguageClient, LanguageClientOptions, ServerOptions } from 'vscode-languageclient';
 
 export function activate(context: ExtensionContext) {
-    // The server is a locally installed in src/mydsl
-    let launcher = os.platform() === 'win32' ? 'mydsl-standalone.bat' : 'mydsl-standalone';
-    let script = context.asAbsolutePath(path.join('src', 'mydsl', 'bin', launcher));
+    // The server is a locally installed in src/franca
+    let launcher = os.platform() === 'win32' ? 'franca-standalone.bat' : 'franca-standalone';
+    let script = context.asAbsolutePath(path.join('src', 'franca', 'bin', launcher));
 
     let serverOptions: ServerOptions = {
         run : { command: script },
@@ -18,7 +18,7 @@ export function activate(context: ExtensionContext) {
     };
     
     let clientOptions: LanguageClientOptions = {
-        documentSelector: ['mydsl'],
+        documentSelector: ['fidl'],
         synchronize: {
             fileEvents: workspace.createFileSystemWatcher('**/*.*')
         }
@@ -27,14 +27,14 @@ export function activate(context: ExtensionContext) {
     // Create the language client and start the client.
     let lc = new LanguageClient('Xtext Server', serverOptions, clientOptions);
     
-    var disposable2 =commands.registerCommand("mydsl.a.proxy", async () => {
+    var disposable2 =commands.registerCommand("franca-standalone", async () => {
         let activeEditor = window.activeTextEditor;
-        if (!activeEditor || !activeEditor.document || activeEditor.document.languageId !== 'mydsl') {
+        if (!activeEditor || !activeEditor.document || activeEditor.document.languageId !== 'fidl') {
             return;
         }
 
         if (activeEditor.document.uri instanceof Uri) {
-            commands.executeCommand("mydsl.a", activeEditor.document.uri.toString());
+            commands.executeCommand("franca-standalone", activeEditor.document.uri.toString());
         }
     })
     context.subscriptions.push(disposable2);

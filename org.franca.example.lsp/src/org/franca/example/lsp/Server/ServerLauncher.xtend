@@ -1,3 +1,4 @@
+package org.franca.example.lsp.Server;
 /*******************************************************************************
  * Copyright (c) 2016 itemis AG (http://www.itemis.de) and others.
  * All rights reserved. This program and the accompanying materials
@@ -28,7 +29,9 @@ import org.eclipse.xtext.ide.server.ServerModule
  */
 class ServerLauncher {
 
-	static boolean IS_DEBUG = true
+	static boolean IS_DEBUG = false
+	
+		val name = "xyz"
 
 	def static void main(String[] args) {
 		//IS_DEBUG = args.exists[it == 'debug']
@@ -43,8 +46,9 @@ class ServerLauncher {
 
 	def void start(InputStream in, OutputStream out) {
 		System.err.println("Starting Xtext Language Server.")
-		val id = ServerLauncher.name + "-" + (new Timestamp(System.currentTimeMillis)).toString.replaceAll(" ","_")
-		val launcher = Launcher.createLauncher(languageServer, LanguageClient, in, out, true, new PrintWriter(new FileOutputStream("/Users/nmaai/Desktop/logs/xxx-"+id+".log"), true))
+		val id = "xyzgradle"
+		// val id = ServerLauncher.name + "-" + (new Timestamp(System.currentTimeMillis)).toString.replaceAll(" ","_")
+		val launcher = Launcher.createLauncher(languageServer, LanguageClient, in, out, true, new PrintWriter(new FileOutputStream("C:\\Users\\Q507977\\Desktop\\logs\\xxx-"+id+".log"), true))
 		languageServer.connect(launcher.remoteProxy)
 		val future = launcher.startListening
 		System.err.println("started.")
@@ -57,9 +61,9 @@ class ServerLauncher {
 		System.setIn(new ByteArrayInputStream(newByteArrayOfSize(0)))
 		val id = ServerLauncher.name + "-" + (new Timestamp(System.currentTimeMillis)).toString.replaceAll(" ","_")
 		if (IS_DEBUG) {
-			val stdFileOut = new FileOutputStream("/Users/nmaai/Desktop/logs/out-" + id + ".log")
+			val stdFileOut = new FileOutputStream("C:/Users/Q507977/Desktop/logs/out-" + id + ".log")
 			System.setOut(new PrintStream(stdFileOut, true))
-			val stdFileErr = new FileOutputStream("/Users/nmaai/Desktop/logs/error-" + id + ".log")
+			val stdFileErr = new FileOutputStream("C:/Users/Q507977/Desktop/logs/error-" + id + ".log")
 			System.setErr(new PrintStream(stdFileErr, true))
 		} else {
 			System.setOut(new PrintStream(new ByteArrayOutputStream()))

@@ -26,9 +26,9 @@
     "contributes": {
         "languages": [
             {
-                "id": "FrancaIDL",
+                "id": "fidl",
                 "aliases": [
-                    "franca"
+                    "FrancaIDL"
                 ],
                 "extensions": [
                     ".fidl"
