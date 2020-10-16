@@ -3,10 +3,15 @@
 import * as net from 'net';
 
 import {Trace} from 'vscode-jsonrpc';
-import { window, workspace, commands, ExtensionContext, Uri } from 'vscode';
+import { window, workspace, commands, ExtensionContext, Uri, TextDocument } from 'vscode';
 import { LanguageClient, LanguageClientOptions, StreamInfo, Position as LSPosition, Location as LSLocation } from 'vscode-languageclient';
 
+	let fileExtensions = ['fidl', 'fdepl', 'fsdl', 'cdepl', 'fcdl'];
+	
 export function activate(context: ExtensionContext) {
+	
+
+	
     // The server is a started as a separate app and listens on port 5008
     let connectionInfo = {
         port: 5008
@@ -22,7 +27,7 @@ export function activate(context: ExtensionContext) {
     };
     
     let clientOptions: LanguageClientOptions = {
-        documentSelector: ['fidl'],
+        documentSelector: fileExtensions,
         synchronize: {
             fileEvents: workspace.createFileSystemWatcher('**/*.*')
         }
@@ -33,7 +38,7 @@ export function activate(context: ExtensionContext) {
 
     var disposable2 =commands.registerCommand("franca-socket", async () => {
         let activeEditor = window.activeTextEditor;
-        if (!activeEditor || !activeEditor.document || activeEditor.document.languageId !== 'fidl') {
+        if (!activeEditor || !activeEditor.document || !containsLanguage(activeEditor.document.languageId)) {
             return;
         }
 
@@ -42,6 +47,7 @@ export function activate(context: ExtensionContext) {
         }
     })
 
+	
     context.subscriptions.push(disposable2);
 
     // enable tracing (.Off, .Messages, Verbose)
@@ -51,4 +57,12 @@ export function activate(context: ExtensionContext) {
     // Push the disposable to the context's subscriptions so that the 
     // client can be deactivated on extension deactivation
     context.subscriptions.push(disposable);
+
+
 }
+	function containsLanguage(languageId: String) {
+		fileExtensions.forEach(function (value) {
+			if (value == languageId) () => { return true }
+		});
+		return false;
+	};

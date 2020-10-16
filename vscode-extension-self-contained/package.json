@@ -35,14 +35,54 @@
                 ],
                 "configuration": "./franca.configuration.json"
             }
-		],
-		"grammars": [
+{
+				"id": "fsdl",
+				"aliases": [
+					"FrancaPlus"
+				],
+				"extensions": [
+					".fsdl"
+					],
+					"configuration": "./franca.configuration.json"
+			},
 			{
-				"language": "fidl",
-				"scopeName": "source.fidl",
-				"path": "./syntaxes/fidl.tmLanguage.json"
+				"id": "fdepl",
+				"aliases": [
+					"FrancaPlus"
+				],
+				"extensions": [
+					".fdepl"
+					],
+					"configuration": "./franca.configuration.json"
+			},
+						{
+				"id": "fcdl",
+				"aliases": [
+					"FrancaPlus"
+				],
+				"extensions": [
+					".fcdl"
+					],
+					"configuration": "./franca.configuration.json"
+			},
+						{
+				"id": "cdepl",
+				"aliases": [
+					"FrancaPlus"
+				],
+				"extensions": [
+					".cdepl"
+					],
+					"configuration": "./franca.configuration.json"
 			}
-		]
+        ],
+        "grammars": [
+            {
+                "language": "fidl",
+                "scopeName": "source.fidl",
+                "path": "./syntaxes/fidl.tmLanguage.json"
+            }
+        ]
     },
     "devDependencies": {
         "vscode": "^1.1.33",

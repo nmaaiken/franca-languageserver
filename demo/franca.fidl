@@ -1,3 +1,4 @@
+package franca
 <** @description  : Bluetooth Manager interface.
 
                     As this is an example interface only, it doesn't contain any
@@ -129,15 +130,3 @@ interface BluetoothManager {
 		}
 	}
 }
-© 2020 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About

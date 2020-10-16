@@ -7,7 +7,12 @@ import {Trace} from 'vscode-jsonrpc';
 import { commands, window, workspace, ExtensionContext, Uri } from 'vscode';
 import { LanguageClient, LanguageClientOptions, ServerOptions } from 'vscode-languageclient';
 
+	let fileExtensions = ['fidl', 'fdepl', 'fsdl', 'cdepl', 'fcdl'];
+	
 export function activate(context: ExtensionContext) {
+	
+
+	
     // The server is a locally installed in src/franca
     let launcher = os.platform() === 'win32' ? 'franca-standalone.bat' : 'franca-standalone';
     let script = context.asAbsolutePath(path.join('src', 'franca', 'bin', launcher));
@@ -18,7 +23,7 @@ export function activate(context: ExtensionContext) {
     };
     
     let clientOptions: LanguageClientOptions = {
-        documentSelector: ['fidl'],
+        documentSelector: fileExtensions,
         synchronize: {
             fileEvents: workspace.createFileSystemWatcher('**/*.*')
         }
@@ -29,7 +34,7 @@ export function activate(context: ExtensionContext) {
     
     var disposable2 =commands.registerCommand("franca-standalone", async () => {
         let activeEditor = window.activeTextEditor;
-        if (!activeEditor || !activeEditor.document || activeEditor.document.languageId !== 'fidl') {
+        if (!activeEditor || !activeEditor.document || !containsLanguage(activeEditor.document.languageId)) {
             return;
         }
 
@@ -46,7 +51,17 @@ export function activate(context: ExtensionContext) {
     // Push the disposable to the context's subscriptions so that the 
     // client can be deactivated on extension deactivation
     context.subscriptions.push(disposable);
+
+
+
 }
+
+	function containsLanguage(languageId: String) {
+		fileExtensions.forEach(function (value) {
+			if (value == languageId) () => { return true }
+		});
+		return false;
+	};
 
 function createDebugEnv() {
     return Object.assign({
