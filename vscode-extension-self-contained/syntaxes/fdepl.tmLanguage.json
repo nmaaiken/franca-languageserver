@@ -1,0 +1,97 @@
+{
+    "scopeName": "source.fdepl",
+    "patterns": [
+      { "include": "#comment" },
+      { "include": "#data-type" },
+      { "include": "#constant" }
+    ],
+    "repository": {
+      "comment": {
+        "patterns": [
+          {
+            "name": "comment.line.fidl",
+            "match": "\\s*//.*"
+          },
+          {
+            "name": "comment.block.fidl",
+            "begin": "\\s*/\\*",
+            "end": "\\*/"
+          },
+          {
+            "name": "comment.block.fidl",
+            "begin": "\\s*<\\*\\*",
+            "end": "\\*\\*>",
+            "patterns": [
+              {
+                "name": "markup.italic.fidl",
+                "match": "\\s*@(description|author|deprecated|source-uri|source-alias|see|experimental|details|param|high-volume|high-frequency):"
+              }
+            ]
+          }
+        ]
+      },
+      "data-type": {
+        "patterns": [
+          {
+            "name": "storage.type.fidl",
+            "match": "\\b(UInt8|Int8|UInt16|Int16|UInt32|Int32|UInt64|Int64|Integer|Boolean|Float|Double|String|ByteBuffer|package|contract|vars|PSM)\\b"
+          },
+          {
+            "name": "storage.type.fidl",
+            "match": "\\b(in|out|error|version|major|minor)\\b"
+          },
+          {
+            "match": "\\b(struct|enumeration|interface|typeCollection|broadcast|array|typedef|method|state|attribute|union)\\b\\s*(\\S+)",
+            "captures": {
+              "1": { "name": "storage.type.fidl" },
+              "2": { "name": "entity.name.type.fidl" }
+            }
+          },
+          {
+            "name": "keyword.control.fidl",
+            "match": "\\b(is|of|extends|import|import model|from|on (call|respond|signal|set|update))\\b"
+          },
+          {
+            "name": "keyword.control.fidl",
+            "match": "->"
+          },
+          {
+            "name": "storage.modifier.fidl",
+            "match": "\\b(const|readonly|noRead|noSubscriptions|initial|fireAndForget)\\b"
+          }
+        ]
+      },
+      "constant": {
+        "patterns": [
+          {
+            "name": "constant.numeric.float.fidl",
+            "match": "\\b([0-9]+.[0-9]+e[-]?[0-9]+[f|d]?)\\b"
+          },
+          {
+            "name": "constant.numeric.float.fidl",
+            "match": "\\b([0-9]+.[0-9]+[f|d]?)\\b"
+          },
+          {
+            "name": "constant.numeric.integer.fidl",
+            "match": "\\b([0-9]+)\\b"
+          },
+          {
+            "name": "constant.numeric.integer.hexadecimal.fidl",
+            "match": "\\b(0x[0-9a-fA-F]+)\\b"
+          },
+          {
+            "name": "constant.numeric.integer.binary.fidl",
+            "match": "\\b(0b[01]+)\\b"
+          },
+          {
+            "name": "constant.numeric.boolean.fidl",
+            "match": "\\b(true|false)\\b"
+          },
+          {
+            "name": "string.quoted.fidl",
+            "match": "\".*\""
+          }
+        ]
+      }
+    }
+  }

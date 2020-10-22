@@ -6,13 +6,12 @@ plugins  {
 repositories {
 	mavenCentral()
 	maven {
-		+url: "https://artifactory.cc.bmwgroup.net/artifactory/franca-maven"
+		url 'https://artifactory.cc.bmwgroup.net/artifactory/franca-maven'
 	}
 }
 
 dependencies {
 
-	compile group: 'org.eclipse.xtext', name: 'org.eclipse.xtext.ui', version: '2.10.0'
 	//compile group: 'org.franca', name: 'org.franca.core.dsl', version: '0.13.1'
 	//compile group: 'org.franca', name: 'org.franca.core.dsl.ide', version: '0.13.1'
 	//compile group: 'org.franca', name: 'org.franca.core', version: '0.13.1'
@@ -27,8 +26,8 @@ dependencies {
 	compile "org.franca:org.franca.compdeploymodel.dsl:0.13.1-SNAPSHOT"
 	compile "org.franca:org.franca.compdeploymodel.dsl.ide:0.13.1-SNAPSHOT"
 	
-	compile "org.franca:org.franca.deploymodel.dsl:0.13.1-SNAPSHOT"
-	compile "org.franca:org.franca.deploymodel.dsl.ide:0.13.1-SNAPSHOT"
+	compile "org.franca:org.franca.deploymodel.dsl:0.13.1"
+	compile "org.franca:org.franca.deploymodel.dsl.ide:0.13.1"
 	
 	compile "org.franca:org.franca.compmodel.dsl:0.13.1-SNAPSHOT"
 	compile "org.franca:org.franca.compmodel.dsl.ide:0.13.1-SNAPSHOT"
