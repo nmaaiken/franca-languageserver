@@ -1,5 +1,5 @@
 task copyApplication(type: Sync) {
-    def installDistTask = project(':org.franca.example.lsp').tasks.installDist
+    def installDistTask = project(':org.franca.lsp.vscode').tasks.installDist
     dependsOn installDistTask
     from installDistTask.outputs
     into 'src/franca'

@@ -23,17 +23,17 @@ dependencies {
 	compile "org.franca:org.franca.core.dsl:0.13.1"
 	compile "org.franca:org.franca.core.dsl.ide:0.13.1"
 	
-	compile "org.franca:org.franca.compdeploymodel.dsl:0.13.1-SNAPSHOT"
-	compile "org.franca:org.franca.compdeploymodel.dsl.ide:0.13.1-SNAPSHOT"
+	//compile "org.franca:org.franca.compdeploymodel.dsl:0.13.1-SNAPSHOT"
+	//compile "org.franca:org.franca.compdeploymodel.dsl.ide:0.13.1-SNAPSHOT"
 	
-	compile "org.franca:org.franca.deploymodel.dsl:0.13.1"
-	compile "org.franca:org.franca.deploymodel.dsl.ide:0.13.1"
+	//compile "org.franca:org.franca.deploymodel.dsl:0.13.1"
+	//compile "org.franca:org.franca.deploymodel.dsl.ide:0.13.1"
 	
-	compile "org.franca:org.franca.compmodel.dsl:0.13.1-SNAPSHOT"
-	compile "org.franca:org.franca.compmodel.dsl.ide:0.13.1-SNAPSHOT"
+	//compile "org.franca:org.franca.compmodel.dsl:0.13.1-SNAPSHOT"
+	//compile "org.franca:org.franca.compmodel.dsl.ide:0.13.1-SNAPSHOT"
 	
-	compile "org.franca:org.franca.signalmodel.dsl:0.13.1-SNAPSHOT"
-	compile "org.franca:org.franca.signalmodel.dsl.ide:0.13.1-SNAPSHOT"
+	//compile "org.franca:org.franca.signalmodel.dsl:0.13.1-SNAPSHOT"
+	//compile "org.franca:org.franca.signalmodel.dsl.ide:0.13.1-SNAPSHOT"
 	
 	implementation group: 'org.eclipse.platform', name: 'org.eclipse.core.runtime'
 	

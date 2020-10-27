@@ -1,6 +1,7 @@
 buildscript {
 	repositories {
 		jcenter()
+		mavenCentral()
 		maven {
 			url "https://plugins.gradle.org/m2/"
 		}
@@ -23,12 +24,13 @@ node {
 // Configuration for Xtext projects
 configure(subprojects.findAll {it.name.startsWith('org.franca')}) {
 
-	ext.xtextVersion = '2.21.0'
+	ext.xtextVersion = '2.23.0'
 	repositories {
 		maven {
 			url 'https://oss.sonatype.org/content/repositories/snapshots'
 		}
 		jcenter()
+		mavenCentral()
 	}
 	
 	apply plugin: 'java'
@@ -42,7 +44,7 @@ configure(subprojects.findAll {it.name.startsWith('org.franca')}) {
 	apply plugin: 'eclipse'
 	apply plugin: 'idea'
 	
-	group = 'org.xtext.example.franca'
+	group = 'org.franca.lsp.vscode'
 	version = '1.0.0-SNAPSHOT'
 	
 	sourceCompatibility = '1.8'

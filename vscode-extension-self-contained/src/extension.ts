@@ -7,7 +7,7 @@ import {Trace} from 'vscode-jsonrpc';
 import { commands, window, workspace, ExtensionContext, Uri } from 'vscode';
 import { LanguageClient, LanguageClientOptions, ServerOptions } from 'vscode-languageclient';
 
-	let fileExtensions = ['fidl', 'fdepl', 'fsdl', 'cdepl', 'fcdl'];
+	let fileExtensions = ['fidl'];
 	
 export function activate(context: ExtensionContext) {
 	
