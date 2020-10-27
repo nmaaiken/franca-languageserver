@@ -15,7 +15,7 @@ dependencies {
 	//compile group: 'org.franca', name: 'org.franca.core.dsl', version: '0.13.1'
 	//compile group: 'org.franca', name: 'org.franca.core.dsl.ide', version: '0.13.1'
 	//compile group: 'org.franca', name: 'org.franca.core', version: '0.13.1'
-	compile group: 'org.franca', name: 'org.franca.core.dsl.ui', version: '0.13.1'
+	//compile group: 'org.franca', name: 'org.franca.core.dsl.ui', version: '0.13.1'
 	compile "org.eclipse.xtext:org.eclipse.xtext.ide:${xtextVersion}"
 	compile "org.eclipse.xtext:org.eclipse.xtext.xbase.ide:${xtextVersion}"
 	
@@ -34,6 +34,8 @@ dependencies {
 	
 	compile "org.franca:org.franca.signalmodel.dsl:0.13.1-SNAPSHOT"
 	compile "org.franca:org.franca.signalmodel.dsl.ide:0.13.1-SNAPSHOT"
+	
+	implementation group: 'org.eclipse.platform', name: 'org.eclipse.core.runtime'
 	
 }
 
