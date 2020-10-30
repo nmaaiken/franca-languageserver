@@ -21,6 +21,7 @@ dependencies {
 	
 	compile "org.franca:org.franca.core:0.13.1"
 	compile "org.franca:org.franca.core.dsl:0.13.1"
+	compile "org.franca:org.franca.core.dsl.ui:0.13.1"
 	compile "org.franca:org.franca.core.dsl.ide:0.13.1"
 	
 	//compile "org.franca:org.franca.compdeploymodel.dsl:0.13.1-SNAPSHOT"
@@ -40,14 +41,14 @@ dependencies {
 }
 
 // Add a start script for the socket case
-mainClassName = 'org.franca.example.lsp.Server.RunServer'
+mainClassName = 'org.franca.lsp.vscode.Server.RunServer'
 startScripts {
 	applicationName = 'franca-socket'
 }
 
 // Add another start script for the standalone / self-contained case
 task standaloneStartScript(type: CreateStartScripts) {
-	mainClassName = 'org.franca.example.lsp.Server.ServerLauncher'
+	mainClassName = 'org.franca.lsp.vscode.Server.ServerLauncher'
 	applicationName = 'franca-standalone'
 	outputDir = new File(project.buildDir, 'scripts')
 	classpath = jar.outputs.files + project.configurations.runtime
@@ -55,5 +56,5 @@ task standaloneStartScript(type: CreateStartScripts) {
 
 applicationDistribution.into("bin") {
 	from(standaloneStartScript)
-	fileMode = 0755
+	fileMode = 0775
 }

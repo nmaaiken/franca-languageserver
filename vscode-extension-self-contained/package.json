@@ -3,7 +3,7 @@
     "displayName": "FrancaIDL for VS Code",
     "description": "An extension, that adds specific Franca language support to VS Code.",
     "version": "1.0.0",
-    "publisher": "",
+    "publisher": "aiken",
     "icon": "",
     "license": "EPL-1.0",
     "repository": {

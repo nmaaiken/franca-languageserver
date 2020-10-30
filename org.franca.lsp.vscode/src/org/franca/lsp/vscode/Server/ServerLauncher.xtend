@@ -1,4 +1,4 @@
-package org.franca.example.lsp.Server;
+package org.franca.lsp.vscode.Server;
 /*******************************************************************************
  * Copyright (c) 2016 itemis AG (http://www.itemis.de) and others.
  * All rights reserved. This program and the accompanying materials

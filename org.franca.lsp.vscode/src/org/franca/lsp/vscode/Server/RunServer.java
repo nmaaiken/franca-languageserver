@@ -1,4 +1,4 @@
-package org.franca.example.lsp.Server;
+package org.franca.lsp.vscode.Server;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.SocketAddress;
