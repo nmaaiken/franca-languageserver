@@ -22,6 +22,7 @@ import org.eclipse.lsp4j.jsonrpc.Launcher
 import org.eclipse.lsp4j.services.LanguageClient
 import org.eclipse.xtext.ide.server.LanguageServerImpl
 import org.eclipse.xtext.ide.server.ServerModule
+import java.io.File
 
 /**
  * @author Sven Efftinge - Initial contribution and API
@@ -30,11 +31,9 @@ import org.eclipse.xtext.ide.server.ServerModule
 class ServerLauncher {
 
 	static boolean IS_DEBUG = false
-	
-		val name = "xyz"
 
 	def static void main(String[] args) {
-		//IS_DEBUG = args.exists[it == 'debug']
+		IS_DEBUG = args.exists[it == 'debug']
 		val stdin = System.in
 		val stdout = System.out
 		redirectStandardStreams()
@@ -46,9 +45,9 @@ class ServerLauncher {
 
 	def void start(InputStream in, OutputStream out) {
 		System.err.println("Starting Xtext Language Server.")
-		val id = "xyzgradle"
+		val id = "franca-lsp"
 		// val id = ServerLauncher.name + "-" + (new Timestamp(System.currentTimeMillis)).toString.replaceAll(" ","_")
-		val launcher = Launcher.createLauncher(languageServer, LanguageClient, in, out, true, new PrintWriter(new FileOutputStream("C:\\Users\\Q507977\\Desktop\\logs\\xxx-"+id+".log"), true))
+		val launcher = Launcher.createLauncher(languageServer, LanguageClient, in, out, true, new PrintWriter(new FileOutputStream(new File("C:/logs/std-" + id + ".log")), true))
 		languageServer.connect(launcher.remoteProxy)
 		val future = launcher.startListening
 		System.err.println("started.")
@@ -59,11 +58,11 @@ class ServerLauncher {
 
 	def static redirectStandardStreams() {
 		System.setIn(new ByteArrayInputStream(newByteArrayOfSize(0)))
-		val id = ServerLauncher.name + "-" + (new Timestamp(System.currentTimeMillis)).toString.replaceAll(" ","_")
+		val id = ServerLauncher.name //  + "-" + (new Timestamp(System.currentTimeMillis)).toString.replaceAll(" ","_")
 		if (IS_DEBUG) {
-			val stdFileOut = new FileOutputStream("C:/Users/Q507977/Desktop/logs/out-" + id + ".log")
+			val stdFileOut = new FileOutputStream("C:/logs/stdOut-" + id + ".log")
 			System.setOut(new PrintStream(stdFileOut, true))
-			val stdFileErr = new FileOutputStream("C:/Users/Q507977/Desktop/logs/error-" + id + ".log")
+			val stdFileErr = new FileOutputStream("C:/logs/error-" + id + ".log")
 			System.setErr(new PrintStream(stdFileErr, true))
 		} else {
 			System.setOut(new PrintStream(new ByteArrayOutputStream()))
