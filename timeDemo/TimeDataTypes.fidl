@@ -1,0 +1,14 @@
+package de.bmw.infotainment.navigation.externalize.timedatatypes
+
+typeCollection TimeDataTypes {
+    struct ClockTimeMinutes {
+        Boolean invalid
+        UInt8 hour
+        UInt8 minute
+    }
+
+    struct ClockTimeSeconds {
+        ClockTimeMinutes clockTimeMinutes
+        UInt8 seconds
+    }
+}

@@ -1,0 +1,34 @@
+package de.bmw.infotainment.time
+
+import de.bmw.infotainment.timetypes.* from "TimeTypes.fidl"
+
+interface TimerCAN {
+    version {
+        major 1
+        minor 0
+    }
+
+    <**
+        @description : 
+        Standard[en]=lastExpiredTimer provides the information, which timer expired most recently, and details about the expired timer.
+        Important note: The value will remain unchanged until new lifecycle of gateway, or another timer expiration!
+    **>
+    attribute TimeTypes.StatusTimerWrapper lastExpiredTimer readonly noSubscriptions
+
+    attribute TimeTypes.OperationTimerWrapper operationTimer noSubscriptions
+
+    attribute TimeTypes.OperationTimerWrapper statusTimer readonly
+
+    <**
+        @description : 
+        Standard[en]=expiredTimer is sent when a timer expired, providing more information on the expired timer.
+        Note: Originated from CAN it will be sent repetitively a few times as specified in CAN catalogue.
+    **>
+    broadcast expiredTimer {
+        out {
+            UInt16 iDFunctionStatusTimer
+            UInt8 iDStatusTimer
+            UInt8 statusTimer
+        }
+    } \n
+}

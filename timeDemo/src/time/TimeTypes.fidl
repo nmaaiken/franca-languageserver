@@ -1,0 +1,396 @@
+package de.bmw.infotainment.timetypes
+
+typeCollection TimeTypes {
+    struct OperationTimerWrapper {
+        <**
+            @description : 
+            SIGNAL SHORTNAME = ID_FN_OP_TIM
+            SIGNAL LONG-NAME[de] = ID_Funktion_Bedienung_Timer
+            SIGNAL LONG-NAME[en] = ID_function_operation_timer
+            [en] = This signal corresponds to the EventID information from the MOST message UniversalTimer.
+            [de] = LogicalInterface:BMW.INFOTAINMENT.CONTROL.ControlTimer[external](at)IuK;
+            Dieses Signal / dieser Parameter entspricht der Information EventID aus der MOST-Nachricht UniversalTimer.
+            CODING SHORTNAME = ID_FN_TIM
+            CODING LONG-NAME[de] = ID_Funktion_Timer
+            CODING LONG-NAME[en] = ID_function_timer
+            [de] = Dieses Signal / dieser Parameter entspricht der Information EventID aus der MOST-Nachricht UniversalTimer.
+            Codierung 0: Keine AktionCodierung 1: StandheizungCodierung 2: StandlüftungCodierung 3: Standheizung
+            Standlueftung (IHKA entscheidet, ob Standheizung oder Standlüftung.)Codierung 65535: Signal ungueltig
+        **>
+        IDFunctionTimer idFunctionOperationTimer
+
+        <**
+            @description : 
+            SIGNAL SHORTNAME = ID_OP_TIM
+            SIGNAL LONG-NAME[de] = ID_Bedienung_Timer
+            SIGNAL LONG-NAME[en] = ID_operation_timer
+            [en] = This signal / parameter contains the number of the timer that has just been adjusted.
+            [de] = LogicalInterface:BMW.INFOTAINMENT.CONTROL.ControlTimer[external](at)IuK;
+            Dieses Signal / Dieser Parameter enthaelt die Nummer des gerade verstellten Timers.
+            CODING SHORTNAME = ID_OP_TIM
+            CODING LONG-NAME[de] = ID_Bedienung_Timer
+            CODING LONG-NAME[en] = ID_operation_timer
+            [en] = This signal / parameter contains the number of the timer that has just been adjusted.
+            [de] = Dieses Signal / Dieser Parameter enthaelt die Nummer des gerade verstellten Timers.
+        **>
+        IDOperationTimer idOperationTimer
+
+        <**
+            @description : 
+            SIGNAL SHORTNAME = OP_TIM_HR
+            SIGNAL LONG-NAME[de] = Bedienung_Timer_Stunde
+            SIGNAL LONG-NAME[en] = operation_timer_hour
+            [en] = This signal / parameter contains the requested hour for the timer that is defined by the contents
+            of the signal / parameter ID_operation_timer / ActualTimer.When adjusting the timer, OP_TIM (operation_
+            timer / ActionTimer) equal to 01 must be sent if the timer is to be activated immediately.
+            [de] = LogicalInterface:BMW.INFOTAINMENT.CONTROL.ControlTimer[external](at)IuK;
+            Dieses Signal / Dieser Parameter enthaelt die gewuenschte Stunde fuer den Timer, der durch den Inhalt des
+            Signals / Parameters ID_Bedienung_Timer / ActualTimer festgelegt wird.Beim Stellen des Timers ist OP_
+            TIM (Bedienung_Timer / ActionTimer) gleich 01 zu senden, wenn der Timer sofort aktiviert werden soll.
+            CODING SHORTNAME = OP_TIM_HR
+            CODING LONG-NAME[de] = Bedienung_Timer_Stunde
+            CODING LONG-NAME[en] = operation_timer_hour
+            [de] = Dieses Signal / Dieser Parameter enthaelt die gewuenschte Stunde fuer den Timer, der durch den Inhalt
+            des Signals / Parameters ID_Bedienung_Timer / ActualTimer festgelegt wird.Beim Stellen des Timers ist
+            OP_TIM (Bedienung_Timer / ActionTimer) gleich 01 zu senden, wenn der Timer sofort aktiviert werden soll.
+            Transp.MOST-GW-Migration, 01.09.2006: Zusammenführung der Signalklasse Bedienung_Timer_Stunde [1] mit
+            den Parametern SetHourTimer [3].
+            BIT-LENGTH = 8
+            COMPU-METHOD CATEGORY = LINEAR
+            UNIT-REF = hour
+            SCALE-CONSTR = [0, 0x17]
+            SCALE-CONSTR NOT-VALID = 0xFF
+            COMPU-INTERNAL-TO-PHYS = ( 0.0 + 1.0 ) / 1.0
+        **>
+        UInt8 operationTimerHour
+
+        <**
+            @description : 
+            SIGNAL SHORTNAME = OP_TIM_MN
+            SIGNAL LONG-NAME[de] = Bedienung_Timer_Minute
+            SIGNAL LONG-NAME[en] = operation_timer_minute
+            [en] = This signal / parameter contains the requested minute for the timer that is defined by the contents
+            of the signal / parameter ID_operation_timer / ActualTimer.When adjusting the timer, OP_TIM (operation_
+            timer / ActionTimer) equal to 01 must be sent if the timer is to be activated immediately.
+            [de] = LogicalInterface:BMW.INFOTAINMENT.CONTROL.ControlTimer[external](at)IuK;
+            Dieses Signal / Dieser Parameter enthaelt die gewuenschte Minute fuer den Timer, der durch den Inhalt des
+            Signals / Parameters ID_Bedienung_Timer / ActualTimer festgelegt wird.Beim Stellen des Timers ist OP_
+            TIM (Bedienung_Timer / ActionTimer) gleich 01 zu senden, wenn der Timer sofort aktiviert werden soll.
+            CODING SHORTNAME = OP_TIM_MN
+            CODING LONG-NAME[de] = Bedienung_Timer_Minute
+            CODING LONG-NAME[en] = operation_timer_minute
+            [de] = Dieses Signal / Dieser Parameter enthaelt die gewuenschte Minute fuer den Timer, der durch den Inhalt
+            des Signals / Parameters ID_Bedienung_Timer / ActualTimer festgelegt wird.Beim Stellen des Timers ist
+            OP_TIM (Bedienung_Timer / ActionTimer) gleich 01 zu senden, wenn der Timer sofort aktiviert werden soll.
+            Transp.MOST-GW-Migration, 01.09.2006: Zusammenfuehrung der Signalklasse Bedienung_Timer_Minute [1] mit
+            den Parametern SetMinuteTimer [3].
+            BIT-LENGTH = 8
+            COMPU-METHOD CATEGORY = LINEAR
+            UNIT-REF = minute
+            SCALE-CONSTR = [0, 0x3B]
+            SCALE-CONSTR NOT-VALID = 0xFF
+            COMPU-INTERNAL-TO-PHYS = ( 0.0 + 1.0 ) / 1.0
+        **>
+        UInt8 operationTimerMinute
+
+        <**
+            @description : 
+            SIGNAL SHORTNAME = OP_TIM
+            SIGNAL LONG-NAME[de] = Bedienung_Timer
+            SIGNAL LONG-NAME[en] = operation_timer
+            [en] = This signal activates or deactivates the timer specified in ID_ operation_timer.
+            [de] = LogicalInterface:BMW.INFOTAINMENT.CONTROL.ControlTimer[external](at)IuK;
+            Dieses Signal / Dieser Parameter aktiviert bzw. deaktiviert den in ID_Bedienung_Timer / ActualTimer angegebenen
+            Timer.
+            CODING SHORTNAME = OP_TIM
+            CODING LONG-NAME[de] = Bedienung_Timer
+            CODING LONG-NAME[en] = operation_timer
+            [de] = Transp.MOST-GW-Migration, 01.09.2006: Zusammenfuehrung der Signalklasse Bedienung_Timer [1] mit
+            den Parametern ActionTimer [1].
+        **>
+        OperationTimer operationTimer
+
+        <**
+            @description : 
+            SIGNAL SHORTNAME = CHGNG_DPRT_T_SLCTN
+            SIGNAL LONG-NAME[de] = Laden_Abfahrt_Zeit_Auswahl
+            SIGNAL LONG-NAME[en] = charging_departure_time_selection
+            [de] = LogicalInterface:BMW.INFOTAINMENT.CONTROL.ControlTimer[external](at)IuK;
+            Dieses Signal gibt an, ob zur Abfahrtszeit (in OP_TIM_HR und OP_TIM_MN) die Funktion Laden am Stromnetz
+            ausgewaehlt ist.
+            CODING SHORTNAME = CHGNG_DPRT_T_SLCTN
+            CODING LONG-NAME[de] = Laden_Abfahrt_Zeit_Auswahl
+            CODING LONG-NAME[en] = charging_departure_time_selection
+            [de] = Codierung 0: InaktivCodierung 1: AktivCodierung 2: Keine AktionCodierung 3: Signal ungueltig
+        **>
+        ChargingDepartureTimeSelection chargingDepartureTimeSelection
+
+        <**
+            @description : 
+            SIGNAL SHORTNAME = AIC_DPRT_T_SLCTN
+            SIGNAL LONG-NAME[de] = Klima_Abfahrt_Zeit_Auswahl
+            SIGNAL LONG-NAME[en] = air-conditioning_departure_time_selection
+            [de] = LogicalInterface:BMW.INFOTAINMENT.CONTROL.ControlTimer[external](at)IuK;
+            Dieses Signal gibt an, ob zur Abfahrtszeit (in OP_TIM_HR und OP_TIM_MN) eine Klimatisierung des Innenraums
+            ausgewaehlt ist.
+            CODING SHORTNAME = AIC_DPRT_T_SLCTN
+            CODING LONG-NAME[de] = Klima_Abfahrt_Zeit_Auswahl
+            CODING LONG-NAME[en] = air-conditioning_departure_time_selection
+            [de] = Codierung 0: InaktivCodierung 1: AktivCodierung 2: Keine AktionCodierung 3: Signal ungueltig
+        **>
+        AirConditioningDepartureTimeSelection airconditioningDepartureTimeSelection
+
+        <**
+            @description : 
+            SIGNAL SHORTNAME = OP_TIM_SLCTN_WDAY
+            SIGNAL LONG-NAME[de] = Bedienung_Timer_Auswahl_Wochentag
+            SIGNAL LONG-NAME[en] = operation_timer_selection_week-day
+            [de] = LogicalInterface:BMW.INFOTAINMENT.CONTROL.ControlTimer[external](at)IuK;
+            Dieses Signal gibt an, an welchen Wochentagen die ausgewaehlte Abfahrzeit (Abfahrzeit 1 bis Abfahrzeit
+            4) aktiviert werden soll.
+            CODING SHORTNAME = OP_TIM_SLCTN_WDAY
+            CODING LONG-NAME[de] = Bedienung_Timer_Auswahl_Wochentag
+            CODING LONG-NAME[en] = operation_timer_selection_week-day
+            [de] = Dieses Signal gibt an, an welchen Wochentagen die ausgewaehlte Abfahrzeit (Abfahrzeit 1 bis Abfahrzeit
+            4) aktiviert werden soll.
+            BIT-LENGTH = 8
+            COMPU-METHOD CATEGORY = IDENTICAL
+            SCALE-CONSTR NOT-VALID = 0xFF
+            COMPU-METHOD CATEGORY = BITFIELD-TEXTTABLE
+            COMPU-SCALE = 0b 1000 0001 [Montag nicht aktiv]  0
+            COMPU-SCALE = 0b 1000 0010 [Dienstag nicht aktiv]  0
+            COMPU-SCALE = 0b 1000 0100 [Mittwoch nicht aktiv]  0
+            COMPU-SCALE = 0b 1000 1000 [Donnerstag nicht aktiv]  0
+            COMPU-SCALE = 0b 1001 0000 [Freitag nicht aktiv]  0
+            COMPU-SCALE = 0b 1010 0000 [Samstag nicht aktiv]  0
+            COMPU-SCALE = 0b 1100 0000 [Sonntag nicht aktiv]  0
+            COMPU-SCALE = 0b 1000 0001 [Montag aktiv]  0x1
+            COMPU-SCALE = 0b 1000 0010 [Dienstag aktiv]  0x2
+            COMPU-SCALE = 0b 1000 0100 [Mittwoch aktiv]  0x4
+            COMPU-SCALE = 0b 1000 1000 [Donnerstag aktiv]  0x8
+            COMPU-SCALE = 0b 1001 0000 [Freitag aktiv]  0x10
+            COMPU-SCALE = 0b 1010 0000 [Samstag aktiv]  0x20
+            COMPU-SCALE = 0b 1100 0000 [Sonntag aktiv]  0x40
+            COMPU-SCALE = 0b 1111 1111 [Signal nicht verfuegbar]  0xFD
+            COMPU-SCALE = 0b 1111 1111 [Fehler]  0xFE
+            COMPU-SCALE = 0b 1111 1111 [Signal unbefuellt]  0xFF
+        **>
+        UInt8 operationTimerTelectionWeekDay
+    }
+
+    struct StatusTimerWrapper {
+        <**
+            @description : 
+            SIGNAL SHORTNAME = ID_FN_ST_TIM
+            SIGNAL LONG-NAME[de] = ID_Funktion_Status_Timer
+            SIGNAL LONG-NAME[en] = ID_function_status_timer
+            [en] = This signal contains the EventID information from the MOST message UniversalTimer.
+            [de] = LogicalInterface:BMW.INFOTAINMENT.CONTROL.ControlTimer[external](at)IuK;
+            Dieses Signal enthaelt die Information EventID aus der MOST-Nachricht UniversalTimer.
+            CODING SHORTNAME = ID_FN_ST_TIM
+            CODING LONG-NAME[de] = ID_Funktion_Status_Timer
+            CODING LONG-NAME[en] = ID_function_status_timer
+            [de] = Automatisch generiert (Migration 2004-10-30)
+        **>
+        IDFunctionStatusTimer iDFunctionStatusTimer
+
+        <**
+            @description : 
+            SIGNAL SHORTNAME = ID_ST_TIM
+            SIGNAL LONG-NAME[de] = ID_Status_Timer
+            SIGNAL LONG-NAME[en] = ID_status_timer
+            [de] = LogicalInterface:BMW.INFOTAINMENT.CONTROL.ControlTimer[external](at)IuK;
+
+            CODING SHORTNAME = ID_ST_TIM
+            CODING LONG-NAME[de] = ID_Status_Timer
+            CODING LONG-NAME[en] = ID_status_timer
+            [de] = Automatisch generiert (Migration 2004-10-30)
+        **>
+        IDStatusTimer iDStatusTimer
+
+        <**
+            @description : 
+            SIGNAL SHORTNAME = ST_TIM
+            SIGNAL LONG-NAME[de] = Status_Timer
+            SIGNAL LONG-NAME[en] = status_timer
+            [de] = LogicalInterface:BMW.INFOTAINMENT.CONTROL.ControlTimer[external](at)IuK;
+
+            CODING SHORTNAME = ST_TIM
+            CODING LONG-NAME[de] = Status_Timer
+            CODING LONG-NAME[en] = status_timer
+            [de] = Automatisch generiert (Migration 2004-10-30)
+        **>
+        StatusTimer statusTimer
+    }
+
+    enumeration IDFunctionTimer {
+        KEINE_AKTION = 0
+        STANDHEIZUNG = 1
+        STANDLUEFTUNG = 2
+
+        <**
+            @description : 
+            Standard[en]=IHKA decides whether park heating or park ventilation.
+            Standard[de]=IHKA entscheidet, ob Standheizung oder Standlueftung.
+        **>
+        STANDHEIZUNG_STANDLUEFTUNG = 3
+        LADEN = 4
+        RSU = 5
+        SIGNAL_UNGUELTIG = 65535
+    }
+
+    enumeration IDOperationTimer {
+        KEIN_TIMER = 0
+
+        <**
+            @description : Standard[de]=Ab 07/2013 wird hier Abfahrtszeit 1 uebertragen (bisher Einschaltzeit 1)
+        **>
+        TIMER_1 = 1
+
+        <**
+            @description : 
+            Standard[de]=Ab 07/2013 wird hier Abfahrtszeit 2 uebertragen (bisher Einschaltzeit 2)
+            Mit Wochenplaner wird hier die aktuell gueltige naechste Abfahrzeit uebertragen.
+        **>
+        TIMER_2 = 2
+
+        <**
+            @description : Standard[de]=Angaben zum Timer-Setzen gelten fuer Ladewecker, fuer die Funktion Ladewecker wird im Kombi Timer 2 aufgezogen.
+        **>
+        LADEWECKER = 3
+
+        <**
+            @description : Standard[de]=Abfahrzeit 1 (mit Wochentagangabe aus dem Wochenplaner)
+        **>
+        ABFAHRZEIT_1 = 4
+
+        <**
+            @description : Standard[de]=Abfahrzeit 2 (mit Wochentagangabe aus dem Wochenplaner)
+        **>
+        ABFAHRZEIT_2 = 5
+
+        <**
+            @description : Standard[de]=Abfahrzeit 3 (mit Wochentagangabe aus dem Wochenplaner)
+        **>
+        ABFAHRZEIT_3 = 6
+
+        <**
+            @description : Standard[de]=Abfahrzeit 4 (Einmaltimer, vorbelegt mit Timer 2)
+        **>
+        ABFAHRZEIT_4 = 7
+
+        <**
+            @description : Standard[de]=Deaktivierung des Wochenplaners mit Bedienung_Timer (deaktivieren).
+        **>
+        WOCHENPLANER = 8
+
+        <**
+            @description : Standard[de]=Einmaltimer zum Start von RSU
+        **>
+        RSU_STARTZEITPUNKT = 9
+        SIGNAL_UNGUELTIG = 255
+    }
+
+    enumeration OperationTimer {
+        TIMER_DEAKTIVIEREN = 0
+        TIMER_AKTIVIEREN = 1
+        KEINE_AKTION = 2
+        SIGNAL_UNGUELTIG = 3
+    }
+
+    enumeration ChargingDepartureTimeSelection {
+        <**
+            @description : Standard[de]=Keine Auswahl von Laden zur Abfahrtszeit
+        **>
+        INAKTIV = 0
+
+        <**
+            @description : Standard[de]=Laden zur Abfahrtszeit ausgewaehlt
+        **>
+        AKTIV = 1
+        KEINE_AKTION = 2
+        SIGNAL_UNGUELTIG = 3
+    }
+
+    enumeration AirConditioningDepartureTimeSelection {
+        <**
+            @description : Standard[de]=Keine Auswahl von Klimatisierung zur Abfahrtszeit
+        **>
+        INAKTIV = 0
+
+        <**
+            @description : Standard[de]=Klimatisierung zur Abfahrtszeit ausgewaehlt
+        **>
+        AKTIV = 1
+        KEINE_AKTION = 2
+        SIGNAL_UNGUELTIG = 3
+    }
+
+    enumeration IDFunctionStatusTimer {
+        <**
+            @description : Standard[de]=Wert 1 wird ab 35up nicht mehr verwendet.
+        **>
+        STANDHEIZUNG = 1
+
+        <**
+            @description : Standard[de]=Wert 2 wird ab 35up nicht mehr verwendet.
+        **>
+        STANDLUEFTUNG = 2
+
+        <**
+            @description : Standard[de]=Bei "intelligenter" Entscheidung
+        **>
+        STANDHEIZUNG_STANDLUEFTUNG = 3
+
+        <**
+            @description : Standard[de]=Ladewecker zur Durchfuehrung von Pausen beim Laden
+        **>
+        LADEN = 4
+        RSU = 5
+        SIGNAL_UNGUELTIG = 65535
+    }
+
+    enumeration IDStatusTimer {
+        KEIN_TIMER_GESETZT = 0
+
+        <**
+            @description : Standard[de]=Timer fuer Standklimatisierung
+        **>
+        TIMER_1 = 1
+
+        <**
+            @description : Standard[de]=Timer fuer Ladewecker
+        **>
+        TIMER_2 = 2
+
+        <**
+            @description : Standard[de]=Timer fuer RSU
+        **>
+        TIMER_3 = 3
+        SIGNAL_UNGUELTIG = 255
+    }
+
+    enumeration StatusTimer {
+        TIMER_NICHT_GESCHAERFT = 0
+        TIMER_GESCHAERFT = 1
+
+        <**
+            @description : 
+            Standard[en]=Event is started (switching time point reached).
+            Standard[de]=Ereignis wird gestartet (Schaltzeitpunkt erreicht).
+        **>
+        TRIGGER = 2
+        SIGNAL_UNGUELTIG = 255
+    }
+
+        <**
+        @description : 
+        Standard[en]=lastExpiredTimer provides the information, which timer expired most recently, and details about the expired timer.
+        Important note: The value will remain unchanged until new lifecycle of gateway, or another timer expiration!
+    **>
+    attribute StatusTimerWrapper lastExpiredTimer readonly noSubscriptions
+
+    attribute TimeTypes.OperationTimerWrapper operationTimer noSubscriptions
+
+    attribute TimeTypes.OperationTimerWrapper statusTimer readonly
+}
